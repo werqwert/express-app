@@ -1,0 +1,10 @@
+function addPattern(name) {
+    let pattern = document.createElement("div")
+    pattern.className = "pattern"
+    for(let i = 0; i < 2; i++) {
+	let tile = document.createElement("img")
+	tile.src = '/' + name + '.jpg'
+	pattern.appendChild(tile)
+    }
+    document.body.appendChild(pattern)
+}

@@ -1,0 +1,20 @@
+window.onfocus = location.reload.bind(location)
+window.onerror = function(msg, f, l) {
+    document.body.style.fontFamily = "monospace"
+    document.body.style.fontSize = '2em'
+    document.body.innerHTML = f + ':' + l +
+	'<hr/>' + '<br/>' + msg
+}
+
+const sensor = new RelativeOrientationSensor()
+sensor.start()
+let main = document.body.children[0]
+function redraw() {
+    let x = sensor.quaternion &&
+	sensor.quaternion[0]
+    main.textContent = x
+    main.style.opacity = x
+    window.requestAnimationFrame(redraw)
+}
+
+sensor.onactivate = redraw

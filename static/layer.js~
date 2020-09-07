@@ -1,0 +1,8 @@
+export default function layer(...children) {
+    let l = document.createElement('div')
+    l.style.position = 'absolute'
+    for(let c of children) {
+	l.appendChild(c)
+    }
+    return l
+}

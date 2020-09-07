@@ -1,0 +1,52 @@
+import "./dev.js"
+import main from "./main.js"
+import img from "./img.js"
+import layer from "./layer.js"
+import canvas from "./canvas.js"
+import relativeOrientation from "./relative-orientation.js"
+
+let c = canvas()
+let cc = c.getContext("2d")
+var i = 0
+
+function randomPoint() {
+    return [Math.random() * c.width, Math.random() * c.height]
+}
+
+const center = ()=>[c.width/2, c.height/2]
+function redraw(time) {
+    i++
+    cc.beginPath()
+
+    cc.strokeStyle = 'rgba(0,0,0, 0.05)'
+    
+    cc.moveTo(0,0)
+    cc.lineTo(...randomPoint())
+    
+    cc.moveTo(c.width,0)
+    cc.lineTo(...randomPoint())
+    
+    cc.moveTo(c.width/2,c.height)
+    cc.lineTo(...randomPoint())
+    cc.stroke()
+
+    cc.beginPath()
+
+    cc.strokeStyle = 'rgba(255,255,255, 0.05)'
+    
+    cc.moveTo(0,0)
+    cc.lineTo(...randomPoint())
+    
+    cc.moveTo(c.width,0)
+    cc.lineTo(...randomPoint())
+    
+    cc.moveTo(c.width/2,c.height)
+    cc.lineTo(...randomPoint())
+    cc.stroke()
+    window.requestAnimationFrame(redraw)
+}
+window.requestAnimationFrame(redraw)
+let m = main(c) 
+
+//m.style.border = "10px solid magenta"
+document.body.appendChild(m)

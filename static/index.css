@@ -1,0 +1,53 @@
+main {
+    border-radius: var(--r1);
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-top: 0.5px;
+    height: 100vh;
+}
+
+a {
+    color: var(--fg);
+    font-weight: 300;
+}
+
+@media (orientation: portrait) {
+    html {
+	font-size: 2em;
+	--r1: 92px;
+	--w: 100vw;
+	--h: 50vh;
+    }
+    
+}
+
+@media (orientation: landscape) {
+    html {
+	--r1: 46px;
+	--w: 50vw;
+	--h: 100vh;
+    }
+    main {
+	white-space: nowrap;
+    }
+}
+
+
+body {
+    margin: 0px;
+}
+
+img {
+    vertical-align: top;
+}
+
+html {
+    --bg: black;
+    --mg: #333;
+    --fg: white;
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: white;
+    font-weight: 100;
+		 
+}

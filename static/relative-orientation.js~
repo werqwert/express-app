@@ -1,0 +1,8 @@
+const sensor = new RelativeOrientationSensor({frequency: 60})
+
+export default function relativeOrientation(callback) {
+    sensor.addEventListener('reading', function() {
+	callback(sensor.quaternion)
+    })
+}
+sensor.start()

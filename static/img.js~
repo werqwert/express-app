@@ -1,0 +1,5 @@
+export default function img(src, width, height) {
+    let image = document.createElement('img')
+    if(width) image.style.width = width
+    if(height) imsge.style.height = height
+}
